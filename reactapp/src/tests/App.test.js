@@ -1,51 +1,117 @@
-import React from "react";
-import App from "../App";
-import { shallow, mount } from "enzyme";
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 
-var wrapper;
-describe('Testing App Component', () => {
-    test('testcase1', () => {
-        wrapper = mount(<App />);
-        expect(wrapper.instance()).toBeDefined();
-        wrapper.unmount();
-    });
 
-    test('testcase2', () => {
-        wrapper = mount(<App />);
-        expect(wrapper.find('h1').text()).toBe('Quizz App');
-        expect(wrapper.find('button').instance()).toBeDefined();
-        wrapper.unmount();
-    });
 
-    test('testcase3', () => {
-        wrapper = mount(<App />);
-        wrapper.find('button').simulate('click')
-        wrapper.find('Button').forEach(node => {
-            expect(node.text()).not.toBe('Start Quiz');
-        })
-        wrapper.unmount();
-    });
 
-    test('testcase4', () => {
-        const wrapper = mount(<App />);
-        wrapper.find('button').simulate('click')
-        wrapper.find('button').forEach(node => {
-            expect(node.simulate('click'));
-        });
-        
-        expect(wrapper.find('Button').last().text()).toBe('Show Results');
-        wrapper.unmount();
-    });
 
-    test('testcase5', () => {
-        const wrapper = mount(<App />);
-        wrapper.find('button').simulate('click')
-        wrapper.find('button').forEach(node => {
-            expect(node.simulate('click'));
-        });
-        wrapper.find('button').last().simulate('click');
-        expect(wrapper.find('button').text()).toBe('Start Quiz');
 
-    })
-})
+
+
+
+
+
+
+
+
+INDEX.CSS
+.title{
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn{
+  background-color: #ffa16b;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #491b00;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result{
+  width: 600px;
+  font-size: 20px;
+  background-color: #ff6e4ad2;
+  border: 1px solid #491b00;
+  text-align: center;
+  border-radius: 5px;
+  margin:100px auto 50px;
+}
+
+.start_btn{
+  width: 300px;
+  font-size: 20px;
+  height: 50px;
+  background-color: #ffa16b;
+  border: 1px solid #491b00;
+  text-align: center;
+  border-radius: 5px; 
+  cursor: pointer;
+  margin:50px;
+}
+
+.show_btn{
+  font-size: 15px;
+  height: 30px;
+  background-color: #71ff2f;
+  border: 1px solid #2e9000;
+  text-align: center;
+  padding: 0px 15px;
+  border-radius: 5px; 
+  cursor: pointer;
+  margin: 10px;
+}
+
+.option{
+  background-color: #ffa16b;
+  border: none;
+  width: 100px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 12px;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 2px solid #491b00;
+}
+
+.options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.card{
+  width: 600px;
+  font-size: 20px;
+  background-color: #af1273;
+  border: 2px solid #491b00;
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px;
+  color:white
+}
+
+.question{
+  margin: 5px;
+}
